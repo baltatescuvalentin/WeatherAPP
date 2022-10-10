@@ -3,6 +3,7 @@ import { floor } from "lodash";
 import { getCoordinates, getWeatherData } from "../API/api";
 
 let sign = '°C';
+let windSpeed = 'm/s';
 let id = 1;
 let currentId = 1;
 let hourlyBool = false;
@@ -12,6 +13,13 @@ function setSign(units) {
         sign = '°C';
     else 
         sign = '°F';
+}
+
+function setWindSpeed(units) {
+    if(units === 'metric')
+        windSpeed = 'm/s';
+    else
+        windSpeed = 'm/h';
 }
 
 function setTime(time) {
@@ -91,6 +99,7 @@ async function setInfo(units, cityName) {
     const main = document.createElement('main');
 
     setSign(units);
+    setWindSpeed(units);
 
     const obj = {
         'name': coord.name,
@@ -242,7 +251,7 @@ function createSummaryRight(obj) {
     right.appendChild(createRightElem('./icons/temperature.png', 'Feels Like', obj.feels_like + sign));
     right.appendChild(createRightElem('./icons/chance.png', 'Humidity', obj.humidity + '%'));
     right.appendChild(createRightElem('./icons/rain.png', 'Precipitations', obj.precipitations + '%'));
-    right.appendChild(createRightElem('./icons/wind.png', 'Wind', obj.wind + ' km/h'));
+    right.appendChild(createRightElem('./icons/wind.png', 'Wind', obj.wind + windSpeed));
 
     return right;
 
@@ -300,7 +309,7 @@ function createDetails(chosen) {
     details.appendChild(createAdditionalElem('NIGHT', floor(chosen.feels_like.night) + sign));
     details.appendChild(createAdditionalElem('HUMIDITY', chosen.humidity + '%'));
     details.appendChild(createAdditionalElem('PRECIPITATIONS', (chosen.pop*100).toFixed(0) + '%'));
-    details.appendChild(createAdditionalElem('WIND', chosen.wind_speed + ' km/h'));
+    details.appendChild(createAdditionalElem('WIND', chosen.wind_speed + windSpeed));
     details.appendChild(createAdditionalElem('SUNRISE', getHour(chosen.sunrise)));
     details.appendChild(createAdditionalElem('SUNSET', getHour(chosen.sunset)));
     details.appendChild(createAdditionalElem('CLOUDINESS', chosen.clouds + '%'));
@@ -334,7 +343,7 @@ function populateDetails(e, chosen) {
     details.appendChild(createAdditionalElem('NIGHT', floor(chosen[currId].feels_like.night) + sign));
     details.appendChild(createAdditionalElem('HUMIDITY', chosen[currId].humidity + '%'));
     details.appendChild(createAdditionalElem('PRECIPITATIONS', (chosen[currId].pop*100).toFixed(0) + '%'));
-    details.appendChild(createAdditionalElem('WIND', chosen[currId].wind_speed.toFixed(1) + ' km/h'));
+    details.appendChild(createAdditionalElem('WIND', chosen[currId].wind_speed.toFixed(1) + windSpeed));
     details.appendChild(createAdditionalElem('SUNRISE', getHour(chosen[currId].sunrise)));
     details.appendChild(createAdditionalElem('SUNSET', getHour(chosen[currId].sunset)));
     details.appendChild(createAdditionalElem('CLOUDINESS', chosen[currId].clouds + '%'));
@@ -535,7 +544,7 @@ function dailyGridElem(obj) {
     wind.src = './icons/wind.png';
     const windText = document.createElement('p');
     windText.classList.add('daily_wind');
-    windText.textContent = obj.wind_speed.toFixed(1) + ' km/h';
+    windText.textContent = obj.wind_speed.toFixed(1) + windSpeed;
     const rain = document.createElement('img');
     rain.classList.add('daily_extra');
     rain.src = './icons/rain.png';
