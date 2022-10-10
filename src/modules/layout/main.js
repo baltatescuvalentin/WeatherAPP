@@ -48,6 +48,7 @@ const icons = {
 }
 
 async function searchCity(units) {
+    hourlyBool = false;
     const search = document.querySelector('#search');
     console.log(`search: ${search}`)
     const name = search.value || 'Baltatesti';
@@ -69,6 +70,7 @@ async function searchCity(units) {
 }
 
 async function changeUnits(units, cityName) {
+    hourlyBool = false;
     const body = document.querySelector('body');
     const main = document.querySelector('main');
     const footer = document.querySelector('footer');
