@@ -5,6 +5,7 @@ import { getCoordinates, getWeatherData } from "../API/api";
 let sign = '°C';
 let id = 1;
 let currentId = 1;
+let hourlyBool = false;
 
 function setSign(units) {
     if(units === 'metric')
@@ -340,6 +341,7 @@ function populateDetails(e, chosen) {
 }
 
 function displayDaily() {
+    hourlyBool = false;
     const hourly = document.querySelector('.hourly');
     const daily = document.querySelector('.daily');
     const hourlyBtn = document.querySelector('.hourly_btn');
@@ -363,6 +365,9 @@ function displayDaily() {
 }
 
 function displayHourly() {
+    if(hourlyBool === true)
+        return;
+    hourlyBool = true;
     const hourly = document.querySelector('.hourly');
     const daily = document.querySelector('.daily');
     const hourlyBtn = document.querySelector('.hourly_btn');
@@ -383,6 +388,12 @@ function displayHourly() {
 
     dailyBtn.classList.remove('active');
     hourlyBtn.classList.add('active');
+
+    const bullets = document.querySelectorAll('.bullet');
+    for(let i = 0; i < bullets.length; i++) {
+        bullets[i].classList.remove('active_bullet');
+    }
+    document.querySelectorAll('.bullet')[0].classList.add('active_bullet');
 }
 
 function displayWithBullet(e, id) {
