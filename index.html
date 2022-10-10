@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather App</title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="https://kit.fontawesome.com/3ef20e5b59.js" crossorigin="anonymous"></script>
+        <script src="./script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <div class="title_container">
+                        <p class="app_title">Weather App </p>
+                        <img src="/icons/sun.png" alt="sun icon" class="header_icon">
+                </div>
+                <p>Powered By <a href="https://openweathermap.org/" class="openweathermap">OpenWeatherMap</a></p>
+            </div>
+
+            <input type="text" name="search" id="search" placeholder="Search...">
+
+            <div class="units">
+                <p class="temperature_chosen" id="celsius">Celsius</p>
+                <p>/</p>
+                <p id="fahrenheit">Fahrenheit</p>
+            </div>
+        </header>
+
+        <main>
+            <div class="summary">
+                <div class="summary_left">
+                    <p>	thunderstorm with heavy drizzle</p>
+                    <img src="./icons/sun.png" alt="test" class="summary_icon">
+                </div>
+
+                <div class="summary_center">
+                    <div class="summary_elem">
+                        <p id="temperature">18°C</p>
+                    </div>
+
+                    <div class="summary_elem">
+                        <img src="./icons/location.png" alt="location">
+                        <p id="location">Baltatesti</p>
+                    </div>
+
+                    <div class="summary_elem">
+                        <img src="./icons/clock.png" alt="time">
+                        <p id="time">14:02 Baltatesti Baltatesti Baltatesti Baltatesti</p>
+                    </div>
+                </div>
+
+                <div class="summary_right">
+                    <div class="summary_elem">
+                        <img src="./icons/temperature.png" alt="temperature">
+                        <div class="summary_text">
+                            <p>Feels Like</p>
+                            <p id="feels_like">16</p>
+                        </div>
+                    </div>
+
+                    <div class="summary_elem">
+                        <img src="./icons/chance.png" alt="humidity">
+                        <div class="summary_text">
+                            <p>Humidity</p>
+                            <p id="humidity">50%</p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="summary_elem">
+                        <img src="./icons/clouds.png" alt="chance of rain">
+                        <div class="summary_text">
+                            <p>Cloudiness</p>
+                            <p id="cloudiness">12%</p>
+                        </div>
+                    </div>
+
+                    <div class="summary_elem">
+                        <img src="./icons/wind.png" alt="wind">
+                        <div class="summary_text">
+                            <p>Wind</p>
+                            <p id="wind">3.7 km/h</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu">
+                <button class="daily_btn active">Daily</button>
+                <button class="hourly_btn">Hourly</button>
+                <div class="submenu">
+                    <div class="leftarrow">&#x3c;</div>
+                    <div class="bullet"></div>
+                    <div class="bullet"></div>
+                    <div class="bullet"></div>
+                    <div class="rightarrow">&#x3e;</div>
+                </div>
+            </div>
+            
+            <!-- <div class="hourly">
+                <div class="hourly_elem">
+                    <p class="hourly_hour">2 am</p>
+                    <p class="hourly_temperature">12</p>
+                    <img src="./icons/moon-cloudy.png" alt="cloudy">
+                </div>
+
+                <div class="hourly_elem">
+                    <p class="hourly_hour">2 am</p>
+                    <p class="hourly_temperature">12</p>
+                    <img src="./icons/moon-cloudy.png" alt="cloudy">
+                </div>
+
+                <div class="hourly_elem">
+                    <p class="hourly_hour">2 am</p>
+                    <p class="hourly_temperature">12</p>
+                    <img src="./icons/moon-cloudy.png" alt="cloudy">
+                </div>
+
+                <div class="hourly_elem">
+                    <p class="hourly_hour">2 am</p>
+                    <p class="hourly_temperature">12</p>
+                    <img src="./icons/moon-cloudy.png" alt="cloudy">
+                </div>
+
+                <div class="hourly_elem">
+                    <p class="hourly_hour">2 am</p>
+                    <p class="hourly_temperature">12</p>
+                    <img src="./icons/moon-cloudy.png" alt="cloudy">
+                </div>
+
+                <div class="hourly_elem">
+                    <p class="hourly_hour">2 am</p>
+                    <p class="hourly_temperature">12</p>
+                    <img src="./icons/moon-cloudy.png" alt="cloudy">
+                </div>
+
+                <div class="hourly_elem">
+                    <p class="hourly_hour">2 am</p>
+                    <p class="hourly_temperature">12</p>
+                    <img src="./icons/moon-cloudy.png" alt="cloudy">
+                </div>
+
+                <div class="hourly_elem">
+                    <p class="hourly_hour">2 am</p>
+                    <p class="hourly_temperature">12</p>
+                    <img src="./icons/moon-cloudy.png" alt="cloudy">
+                </div>
+            </div> -->
+
+            <div class="daily">
+                <div class="daily_elem">
+                    <p class="daily_day">Monday</p>
+                    <img src="./icons/sun-cloudy.png" alt="sun cloudy" class="daily_weather">
+                    <p class="daily_maxtemp">126°C</p>
+                    <p class="daily_mintemp">6°C</p>
+                    <img src="./icons/wind.png" alt="wind probabilit" class="daily_extra">
+                    <p class="daily_wind">10 km/h</p>
+                    <img src="./icons/rain.png" alt="chance of rain" class="daily_extra">
+                    <p class="daily_rain">7%</p>
+                </div>
+
+                <div class="daily_elem">
+                    <p class="daily_day">Monday</p>
+                    <img src="./icons/sun-cloudy.png" alt="sun cloudy" class="daily_weather">
+                    <p class="daily_maxtemp">16°C</p>
+                    <p class="daily_mintemp">6°C</p>
+                    <img src="./icons/wind.png" alt="wind probabilit" class="daily_extra">
+                    <p class="daily_wind">10 km/h</p>
+                    <img src="./icons/rain.png" alt="chance of rain" class="daily_extra">
+                    <p class="daily_rain">7%</p>
+                </div>
+                <div class="daily_elem">
+                    <p class="daily_day">Monday</p>
+                    <img src="./icons/sun-cloudy.png" alt="sun cloudy" class="daily_weather">
+                    <p class="daily_maxtemp">16°C</p>
+                    <p class="daily_mintemp">6°C</p>
+                    <img src="./icons/wind.png" alt="wind probabilit" class="daily_extra">
+                    <p class="daily_wind">10 km/h</p>
+                    <img src="./icons/rain.png" alt="chance of rain" class="daily_extra">
+                    <p class="daily_rain">7%</p>
+                </div>
+
+                <div class="daily_elem">
+                    <p class="daily_day">Monday</p>
+                    <img src="./icons/sun-cloudy.png" alt="sun cloudy" class="daily_weather">
+                    <p class="daily_maxtemp">16°C</p>
+                    <p class="daily_mintemp">6°C</p>
+                    <img src="./icons/wind.png" alt="wind probabilit" class="daily_extra">
+                    <p class="daily_wind">10 km/h</p>
+                    <img src="./icons/rain.png" alt="chance of rain" class="daily_extra">
+                    <p class="daily_rain">7%</p>
+                </div>
+
+                <div class="daily_elem">
+                    <p class="daily_day">Monday</p>
+                    <img src="./icons/sun-cloudy.png" alt="sun cloudy" class="daily_weather">
+                    <p class="daily_maxtemp">16°C</p>
+                    <p class="daily_mintemp">6°C</p>
+                    <img src="./icons/wind.png" alt="wind probabilit" class="daily_extra">
+                    <p class="daily_wind">10 km/h</p>
+                    <img src="./icons/rain.png" alt="chance of rain" class="daily_extra">
+                    <p class="daily_rain">7%</p>
+                </div>
+
+                <div class="daily_elem">
+                    <p class="daily_day">Monday</p>
+                    <img src="./icons/sun-cloudy.png" alt="sun cloudy" class="daily_weather">
+                    <p class="daily_maxtemp">16°C</p>
+                    <p class="daily_mintemp">6°C</p>
+                    <img src="./icons/wind.png" alt="wind probabilit" class="daily_extra">
+                    <p class="daily_wind">10 km/h</p>
+                    <img src="./icons/rain.png" alt="chance of rain" class="daily_extra">
+                    <p class="daily_rain">7%</p>
+                </div>
+
+                <div class="daily_elem">
+                    <p class="daily_day">Monday</p>
+                    <img src="./icons/sun-cloudy.png" alt="sun cloudy" class="daily_weather">
+                    <p class="daily_maxtemp">16°C</p>
+                    <p class="daily_mintemp">6°C</p>
+                    <img src="./icons/wind.png" alt="wind probabilit" class="daily_extra">
+                    <p class="daily_wind">10 km/h</p>
+                    <img src="./icons/rain.png" alt="chance of rain" class="daily_extra">
+                    <p class="daily_rain">7%</p>
+                </div>
+            </div>
+
+            <div class="additional">
+                <div class="additional_elem">
+                    <p class="additional_title">Test</p>
+                    <p class="additional_text">Test</p>
+                </div>
+
+                <div class="additional_elem">
+                    <p class="additional_title">Test</p>
+                    <p class="additional_text">Test</p>
+                </div>
+
+                <div class="additional_elem">
+                    <p class="additional_title">Test</p>
+                    <p class="additional_text">Test</p>
+                </div>
+
+                <div class="additional_elem">
+                    <p class="additional_title">Test</p>
+                    <p class="additional_text">Test</p>
+                </div>
+
+                <div class="additional_elem">
+                    <p class="additional_title">Test</p>
+                    <p class="additional_text">Test</p>
+                </div>
+
+                <div class="additional_elem">
+                    <p class="additional_title">Test</p>
+                    <p class="additional_text">Test</p>
+                </div>
+
+                <div class="additional_elem">
+                    <p class="additional_title">Test</p>
+                    <p class="additional_text">Test</p>
+                </div>
+
+                <div class="additional_elem">
+                    <p class="additional_title">Test</p>
+                    <p class="additional_text">Test</p>
+                </div>
+
+                <div class="additional_elem">
+                    <p class="additional_title">Test</p>
+                    <p class="additional_text">Test</p>
+                </div>
+
+                <div class="additional_elem">
+                    <p class="additional_title">Test</p>
+                    <p class="additional_text">Test</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <h3 class="footer_content">Copyright©baltatescuvalentin 
+                <script>
+                    document.write(new Date().getFullYear())
+                </script>
+                <a href="https://github.com/baltatescuvalentin" target="_blank">
+                    <i class="fa-brands fa-github fa-xl" ></i>
+                </a>
+            </h3>
+        </footer>
+    </body>
+</html>
