@@ -15,7 +15,7 @@ function clearData(cityName) {
 }
 
 function buildCityRequestUrl(cityName) {
-  return `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${KEY}`;
+  return `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${KEY}`;
 }
 
 function buildDataRequestUrl(coordinates, units) {
