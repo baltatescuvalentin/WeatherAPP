@@ -1,65 +1,66 @@
-import { changeUnits } from "./main";
-
 function createHeader() {
-    const header = document.createElement('header');
-    
-    const title = document.createElement('div');
-    title.classList.add('title');
-    const titleContainer = document.createElement('div');
-    titleContainer.classList.add('title_container');
-    const appTitle = document.createElement('p');
-    appTitle.classList.add('app_title');
-    appTitle.textContent = 'Weather App';
-    const img = document.createElement('img');
-    img.src = './icons/sun.png';
-    img.alt = 'icon';
-    img.classList.add('header_icon');
+  const header = document.createElement("header");
 
-    titleContainer.appendChild(appTitle);
-    titleContainer.appendChild(img);
+  const title = document.createElement("div");
+  title.classList.add("title");
+  const titleContainer = document.createElement("div");
+  titleContainer.classList.add("title_container");
+  const appTitle = document.createElement("p");
+  appTitle.classList.add("app_title");
+  appTitle.textContent = "Weather App";
+  const img = document.createElement("img");
+  img.src = `/${import.meta.env.VITE_BASE_URL}/icons/sun.png`;
+  img.alt = "icon";
+  img.classList.add("header_icon");
+  img.loading = "lazy";
 
-    const OWM = document.createElement('a');
-    OWM.href = 'https://openweathermap.org/';
-    OWM.classList.add('openweathermap');
-    OWM.textContent = 'OpenWeatherMap';
+  titleContainer.appendChild(appTitle);
+  titleContainer.appendChild(img);
 
-    const poweredBy = document.createElement('p');
-    poweredBy.textContent = 'Powered By ';
-    poweredBy.appendChild(OWM);
+  const OWM = document.createElement("a");
+  OWM.href = "https://openweathermap.org/";
+  OWM.classList.add("openweathermap");
+  OWM.textContent = "OpenWeatherMap";
 
-    title.appendChild(titleContainer);
-    title.appendChild(poweredBy);
+  const poweredBy = document.createElement("p");
+  poweredBy.textContent = "Powered By ";
+  poweredBy.appendChild(OWM);
 
-    const search = document.createElement('input');
-    search.type = 'text';
-    search.name = 'search';
-    search.id = 'search';
-    search.placeholder = 'Search...';
+  title.appendChild(titleContainer);
+  title.appendChild(poweredBy);
 
-    const units = document.createElement('div');
-    units.classList.add('units');
+  const search = document.createElement("input");
+  search.type = "text";
+  search.name = "search";
+  search.id = "search";
+  search.placeholder = "Search...";
+  search.style.padding = "4px";
+  search.style.paddingLeft = "16px";
 
-    const celsius = document.createElement('p');
-    celsius.classList.add('temperature_chosen');
-    celsius.setAttribute('id', 'celsius');
-    celsius.textContent = 'Celsius';
+  const units = document.createElement("div");
+  units.classList.add("units");
 
-    const slash = document.createElement('p');
-    slash.textContent = '/';
+  const celsius = document.createElement("p");
+  celsius.classList.add("temperature_chosen");
+  celsius.setAttribute("id", "celsius");
+  celsius.textContent = "Celsius";
 
-    const fahrenheit = document.createElement('p');
-    fahrenheit.setAttribute('id', 'fahrenheit');
-    fahrenheit.textContent = 'Fahrenheit';
+  const slash = document.createElement("p");
+  slash.textContent = "/";
 
-    units.appendChild(celsius);
-    units.appendChild(slash);
-    units.appendChild(fahrenheit);
+  const fahrenheit = document.createElement("p");
+  fahrenheit.setAttribute("id", "fahrenheit");
+  fahrenheit.textContent = "Fahrenheit";
 
-    header.appendChild(title);
-    header.appendChild(search);
-    header.appendChild(units);
+  units.appendChild(celsius);
+  units.appendChild(slash);
+  units.appendChild(fahrenheit);
 
-    return header;
+  header.appendChild(title);
+  header.appendChild(search);
+  header.appendChild(units);
+
+  return header;
 }
 
 export default createHeader;
